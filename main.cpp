@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
 
 // Función para validar si una cadena representa un número decimal
 bool isDecimal(const std::string& str) {
@@ -15,33 +14,31 @@ int main() {
     std::ifstream inputFile(filename);
 
     if (!inputFile.is_open()) {
-        std::cerr << "Error  abrir el archivo: " << filename << std::endl;
+        std::cerr << "Error al abrir el archivo: " << filename << std::endl;
         return 1;
     }
 
-    std::vector<double> numeros;
+    double suma = 0.0;
+    int count = 0;
     std::string linea;
 
     while (std::getline(inputFile, linea)) {
         if (isDecimal(linea)) {
             double num = std::stod(linea);
-            numeros.push_back(num);
+            suma += num;
+            count++;
         }
     }
 
     inputFile.close();
 
-    if (numeros.empty()) {
+    if (count == 0) {
         std::cout << "No se encontraron números válidos en el archivo." << std::endl;
         return 0;
     }
 
     // Calcular la media
-    double suma = 0.0;
-    for (double num : numeros) {
-        suma += num;
-    }
-    double media = suma / numeros.size();
+    double media = suma / count;
 
     std::cout << "Media de los números encontrados: " << media << std::endl;
 
