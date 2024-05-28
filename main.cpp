@@ -15,7 +15,7 @@ int main() {
     std::ifstream inputFile(filename);
 
     if (!inputFile.is_open()) {
-        std::cerr << "Error al abrir el archivo: " << filename << std::endl;
+        std::cerr << "Error  abrir el archivo: " << filename << std::endl;
         return 1;
     }
 
