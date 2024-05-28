@@ -11,7 +11,7 @@ bool isDecimal(const std::string& str) {
 }
 
 int main() {
-    std::string filename = "./data/datos.txt"; // Cambia esto al nombre de tu archivo de texto
+    std::string filename = "./data/datos.txt";
     std::ifstream inputFile(filename);
 
     if (!inputFile.is_open()) {
